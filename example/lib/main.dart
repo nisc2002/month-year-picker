@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       initialDate: _selected ?? DateTime.now(),
       firstDate: DateTime(2019),
-      lastDate: DateTime(2030),
+      lastDate: DateTime(2100),
       locale: localeObj,
     );
     // final selected = await showDatePicker(
