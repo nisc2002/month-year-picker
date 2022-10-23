@@ -230,7 +230,6 @@ class YearPickerState extends State<YearPicker> {
 
   void _onPageChanged(final int page) {
     _currentPage = page;
-    widget.onPageChanged(DateTime(widget.firstDate.year + (page * 12)));
   }
 }
 
