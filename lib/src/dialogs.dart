@@ -121,6 +121,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
   var _canGoPrevious = false;
   var _canGoNext = false;
   late DateTime _selectedDate = widget.initialDate;
+  // viewed year in monthPicker
+  late DateTime _viewedYear = DateTime(widget.initialDate.year);
 
   // -------------------------------- PROPERTIES -------------------------------
   Size get _dialogSize {
@@ -280,7 +282,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   initialDate: _selectedDate,
                   firstDate: widget.firstDate,
                   lastDate: widget.lastDate,
-                  onPageChanged: _updateSelectedDate,
+                  onPageChanged: _updateViewedYear,
                   onYearSelected: _updateYear,
                   selectedDate: _selectedDate,
                   selectableMonthYearPredicate:
@@ -302,7 +304,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   initialDate: _selectedDate,
                   firstDate: widget.firstDate,
                   lastDate: widget.lastDate,
-                  onPageChanged: _updateSelectedDate,
+                  onPageChanged: _updateViewedYear,
                   onMonthSelected: _updateMonth,
                   selectedDate: _selectedDate,
                   selectableMonthYearPredicate:
@@ -385,13 +387,13 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
 
   void _updateMonth(DateTime date) {
     setState(() {
-      _selectedDate = DateTime(date.year, date.month);
+      _selectedDate = DateTime(_viewedYear.year, date.month);
     });
   }
 
-  void _updateSelectedDate(DateTime date) {
+  void _updateViewedYear(DateTime date) {
     setState(() {
-      _selectedDate = DateTime(date.year, date.month);
+      _viewedYear = DateTime(date.year);
       _updatePaginators();
     });
   }
