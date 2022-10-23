@@ -283,7 +283,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
                   firstDate: widget.firstDate,
                   lastDate: widget.lastDate,
                   onPageChanged: _updateViewedYear,
-                  onYearSelected: _updateYear,
+                  onYearSelected: _selectYear,
                   selectedDate: _selectedDate,
                   selectableMonthYearPredicate:
                       widget.selectableMonthYearPredicate,
@@ -377,11 +377,11 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     );
   }
 
-  void _updateYear(DateTime date) {
+  void _selectYear(DateTime date) {
     setState(() {
-      _selectedDate = DateTime(date.year, _selectedDate.month);
+      _viewedYear = DateTime(date.year);
       _isShowingYear = false;
-      _monthPickerState.currentState!.goToYear(year: _selectedDate.year);
+      _monthPickerState.currentState!.goToYear(year: _viewedYear.year);
     });
   }
 
