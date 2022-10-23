@@ -214,7 +214,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
           ),
           child: Row(
             children: [
-              Text(materialLocalizations.formatYear(_selectedDate)),
+              Text(materialLocalizations.formatYear(_viewedYear)),
               AnimatedRotation(
                 duration: _dialogSizeAnimationDuration,
                 turns: _isShowingYear ? 0.5 : 0.0,
