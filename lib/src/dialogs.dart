@@ -333,7 +333,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
           curve: Curves.easeIn,
           child: MediaQuery(
             data: MediaQuery.of(context).copyWith(
-              textScaleFactor: textScaleFactor,
+              textScaler: TextScaler.linear(textScaleFactor),
             ),
             child: Builder(
               builder: (context) {
